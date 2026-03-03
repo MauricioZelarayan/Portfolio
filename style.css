@@ -1,8 +1,8 @@
-/* --- Variables y Estilos Globales --- */
+/* Variables y Estilos Globales */
 :root {
     --color-primario: #2a6ded;
     --color-secundario: #1a1a1a;
-    --color-texto-oscuro: #333; /* Color para el texto dentro de las tarjetas blancas */
+    --color-texto-oscuro: #333;
     --color-blanco: #ffffff;
     --fuente-principal: 'Roboto', sans-serif;
 }
@@ -10,12 +10,12 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
-/* El body ahora es transparente y con texto blanco para el fondo espacial */
 body { 
     font-family: var(--fuente-principal); 
     color: var(--color-blanco); 
     background-color: transparent; 
     line-height: 1.6; 
+    min-height: 100vh;
 }
 
 .container { max-width: 1100px; margin: auto; padding: 0 2rem; position: relative; z-index: 10; }
@@ -24,13 +24,13 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: var(--co
 section { padding: 4rem 0; position: relative; z-index: 10; }
 .subtitulo-seccion { text-align: center; max-width: 600px; margin: -2rem auto 3rem auto; color: #cccccc; }
 
-/* --- Animación del Espacio (Global) --- */
+/* Animación del Espacio (Global) */
 .space-background {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     z-index: -1;
 }
@@ -49,15 +49,17 @@ section { padding: 4rem 0; position: relative; z-index: 10; }
 .stars-layer-3 { width: 3px; height: 3px; background: transparent; box-shadow: 123px 1890px #FFF, 1678px 456px #FFF, 890px 1234px #FFF, 1456px 789px #FFF, 234px 1567px #FFF, 1789px 901px #FFF, 567px 1345px #FFF, 1123px 234px #FFF, 678px 1678px #FFF, 1345px 567px #FFF; animation: animStar 12s linear infinite; }
 .stars-layer-3:after { content: " "; position: absolute; top: 2000px; width: 3px; height: 3px; background: transparent; box-shadow: inherit; }
 
-/* --- Header y Navegación --- */
-header { background: rgba(15, 20, 30, 0.9); box-shadow: 0 2px 10px rgba(0,0,0,0.5); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(5px); }
+/* Header y Navegación */
+header { background: rgba(15, 20, 30, 0.9); box-shadow: 0 2px 10px rgba(0,0,0,0.5); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(5px); transition: top 0.4s ease-in-out; background-color: #090a0f; height: 80px; display: flex; align-items: center;}
 header .container { display: flex; justify-content: space-between; align-items: center; }
 header .logo { color: var(--color-primario); font-size: 1.5rem; font-weight: 700; text-decoration: none; }
 header nav ul { list-style: none; display: flex; gap: 1.5rem; }
 header nav a { text-decoration: none; color: var(--color-blanco); font-weight: 400; transition: color 0.3s ease; }
 header nav a:hover { color: var(--color-primario); }
 
-/* --- Sección Inicio --- */
+.header-hidden { top: -120px; }
+
+/* Sección Inicio */
 #inicio { min-height: 100vh; display: flex; align-items: center; text-align: center; background: transparent; }
 #inicio h1 { font-size: 3.5rem; }
 #inicio h2 { font-size: 2rem; color: var(--color-primario); margin-bottom: 1.5rem; }
@@ -65,27 +67,16 @@ header nav a:hover { color: var(--color-primario); }
 .btn { display: inline-block; background: var(--color-primario); color: var(--color-blanco); padding: 12px 24px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: background 0.3s ease; }
 .btn:hover { background: #1f5bce; }
 
-/* --- Sección Sobre Mí --- */
+/* Sección Sobre Mí */
 #sobre-mi { background: transparent; }
 .sobre-mi-content { display: flex; align-items: center; gap: 3rem; }
 .sobre-mi-img { flex: 1; text-align: center; }
 .sobre-mi-img img { max-width: 300px; border-radius: 50%; border: 5px solid rgba(255,255,255,0.2); }
 .sobre-mi-text { flex: 2; }
 
-.cv-download {
-    margin-top: 2rem;
-}
-
-.cv-download i {
-    margin-right: 8px;
-    color: #ff0000;
-}
-
-.btn-outline {
-    background: transparent;
-    border: 2px solid var(--color-primario);
-    margin-left: 10px;
-}
+.cv-download { margin-top: 2rem; }
+.cv-download i { margin-right: 8px; color: #ff0000; }
+.btn-outline { background: transparent; border: 2px solid var(--color-primario); margin-left: 10px; }
 
 /* Sección de Habilidades */
 .skills-grid {
@@ -117,7 +108,6 @@ header nav a:hover { color: var(--color-primario); }
     display: inline-block;
 }
 
-/* Subrayado decorativo bajo el título del card */
 .skill-card h4::after {
     content: '';
     position: absolute;
@@ -131,7 +121,7 @@ header nav a:hover { color: var(--color-primario); }
 
 .skill-icons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Organiza iconos en 2 columnas */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     justify-items: center;
     align-items: center;
@@ -145,50 +135,63 @@ header nav a:hover { color: var(--color-primario); }
     width: 100%;
 }
 
-.skill-item:hover {
-    transform: scale(1.15); /* Efecto pop al pasar el mouse */
-}
+.skill-item:hover { transform: scale(1.15); }
+.skill-item i { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.skill-item span { font-size: 0.85rem; font-weight: 700; color: var(--color-texto-oscuro); display: block; }
 
-.skill-item i {
-    font-size: 2.5rem; /* Iconos grandes como en el portfolio de referencia */
-    margin-bottom: 0.8rem;
-}
-
-.skill-item span {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--color-texto-oscuro);
-    display: block;
-}
-
-/* --- Sección Experiencia --- */
+/* Sección Experiencia */
 #experiencia { background: transparent; }
+
 .timeline { position: relative; max-width: 750px; margin: 0 auto; }
 .timeline::after { content: ''; position: absolute; width: 4px; background-color: rgba(255,255,255,0.2); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
-.timeline-item { padding: 10px 40px; position: relative; width: 50%; }
+
+.timeline-item { 
+    padding: 10px 40px; 
+    position: relative; 
+    width: 50%; 
+}
+
 .timeline-item:nth-child(odd) { left: 0; }
 .timeline-item:nth-child(even) { left: 50%; }
-.timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--color-secundario); border: 4px solid var(--color-primario); top: 15px; border-radius: 50%; z-index: 1; }
+
+.timeline-item::after { 
+    content: ''; 
+    position: absolute; 
+    width: 20px; 
+    height: 20px; 
+    right: -10px; 
+    background-color: var(--color-secundario); 
+    border: 4px solid var(--color-primario); 
+    top: 15px; 
+    border-radius: 50%; 
+    z-index: 1; 
+}
+
 .timeline-item:nth-child(even)::after { left: -10px; }
-.timeline-content { padding: 20px 30px; background-color: var(--color-blanco); color: var(--color-texto-oscuro); position: relative; border-radius: 6px; box-shadow: 0 3px 15px rgba(0,0,0,0.3); }
+
+.timeline-content { 
+    padding: 20px 30px; 
+    background-color: var(--color-blanco); 
+    color: var(--color-texto-oscuro); 
+    position: relative; 
+    border-radius: 6px; 
+    box-shadow: 0 3px 15px rgba(0,0,0,0.3); 
+}
+
 .timeline-date { font-weight: 700; color: var(--color-primario); margin-bottom: 0.5rem; display: inline-block; }
 .timeline-content h3 { margin-top: 0; font-size: 1.25rem; }
 .timeline-company { font-style: italic; margin-bottom: 0.5rem; color: #666; }
 
-/* --- Sección Proyectos --- */
-#proyectos { 
-    background: transparent; 
-}
+/* Sección Proyectos */
+#proyectos { background: transparent; }
 
-/* El contenedor principal que usa Grid para las tarjetas */
 .proyectos-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 2rem; 
-    align-items: stretch; /* Estira las tarjetas para que todas midan lo mismo en la misma fila */
+    align-items: stretch;
 }
 
-/* La tarjeta individual */
 .proyecto-card { 
     background: var(--color-blanco); 
     color: var(--color-texto-oscuro); 
@@ -197,21 +200,19 @@ header nav a:hover { color: var(--color-primario); }
     overflow: hidden; 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
     display: flex; 
-    flex-direction: column; /* Alineación vertical de los elementos internos */
+    flex-direction: column;
 }
 
-/* Efecto Hover: se levanta y mejora la sombra */
 .proyecto-card:hover { 
     transform: translateY(-10px); 
     box-shadow: 0 12px 30px rgba(0,0,0,0.5); 
 }
 
-/* Contenedor de la imagen (simetría) */
 .card-image-container {
     width: 100%;
-    height: 200px; /* Altura fija para que todas las capturas/logos alineen igual */
+    height: 200px;
     overflow: hidden;
-    background-color: #f8f9fa; /* Fondo neutro para el logo de Salesforce */
+    background-color: #f8f9fa;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -220,21 +221,17 @@ header nav a:hover { color: var(--color-primario); }
 .card-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Evita que las imágenes se estiren o achaten */
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-/* Zoom suave en la imagen al pasar el mouse */
-.proyecto-card:hover .card-image-container img {
-    transform: scale(1.05);
-}
+.proyecto-card:hover .card-image-container img { transform: scale(1.05); }
 
-/* Cuerpo de la tarjeta: maneja el espaciado interno */
 .card-body {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Ocupa todo el espacio disponible */
+    flex-grow: 1;
 }
 
 .card-body h3 {
@@ -242,27 +239,24 @@ header nav a:hover { color: var(--color-primario); }
     font-size: 1.4rem;
 }
 
-/* Descripción: El "resorte" que empuja los botones hacia abajo */
 .card-description {
     font-size: 0.95rem;
     color: #444;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* ESTO ALINEA LOS BOTONES AL FONDO */
+    flex-grow: 1;
 }
 
-/* Contenedor de botones: alineados horizontalmente */
 .card-buttons {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid #eee; /* Línea divisoria sutil */
+    border-top: 1px solid #eee;
 }
 
-/* Botones dentro de las tarjetas */
 .card-buttons .btn-proyecto {
-    flex: 1; /* Hace que ambos botones midan lo mismo */
+    flex: 1;
     border: 2px solid var(--color-primario);
     color: var(--color-primario);
     padding: 8px 12px;
@@ -281,9 +275,8 @@ header nav a:hover { color: var(--color-primario); }
 
 /* Sección Contacto */
 #contacto { text-align: center; background: transparent; }
-#contacto p {
-    margin-bottom: 2.5rem; /* Esto empuja el formulario hacia abajo */
-}
+#contacto p { margin-bottom: 2.5rem; }
+
 .contact-wrapper {
     margin-top: 1rem;
     display: flex;
@@ -293,6 +286,7 @@ header nav a:hover { color: var(--color-primario); }
     margin: 0 auto;
     text-align: left;
 }
+
 .contact-form { background: var(--color-blanco); color: var(--color-texto-oscuro); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 .form-group { margin-bottom: 1.5rem; }
 .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 700; }
@@ -313,21 +307,116 @@ header nav a:hover { color: var(--color-primario); }
     gap: 0.5rem;
 }
 
-.contact-item i {
-    color: var(--color-primario);
-}
+.contact-item i { color: var(--color-primario); }
 
 /* Footer */
 footer { background: rgba(15, 20, 30, 0.9); color: var(--color-blanco); text-align: center; padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.1); }
 
-/* Responsive */
-@media(max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    header .container { flex-direction: column; gap: 0.5rem; }
-    .sobre-mi-content { flex-direction: column; }
-    .timeline::after { left: 10px; }
-    .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; }
-    .timeline-item:nth-child(even) { left: 0; }
-    .timeline-item::after { left: 1px; }
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-blanco);
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
+header { 
+    background-color: #090a0f; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+    padding: 0; 
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    left: 0;
+    z-index: 2000;
+    height: 70px; 
+    display: flex;
+    align-items: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* --- Responsive (Celulares) --- */
+@media (max-width: 768px) {
+    #inicio { 
+        padding-top: 120px;
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
+    .hamburger {
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 2001;
+    }
+
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(9, 10, 15, 0.98);
+        padding: 2rem 0;
+        gap: 1.5rem;
+        text-align: center;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active { display: flex; }
+
+    .inicio-content .btn {
+        margin: 10px 5px;
+        display: inline-block;
+        width: 90%;
+    }
+
+    .proyectos-grid, .skills-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0 10px;
+    }
+
+    .sobre-mi-content { flex-direction: column; text-align: center; }
+    .sobre-mi-img img { max-width: 200px; margin-bottom: 1.5rem; }
+
+    .timeline::after {
+        left: 25px; /* Mueve la línea vertical al lado izquierdo */
+    }
+
+    .timeline-item {
+        width: 100%; /* Las tarjetas ocupan el 100% del ancho */
+        padding-left: 80px; /* Espacio para la línea vertical */
+        left: 0 !important; /* Anula el left: 50% de desktop */
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0 !important; /* Anula el left: 50% de los pares */
+    }
+
+    .timeline-item::after {
+        left: -10px; /* Coloca el punto siempre a la izquierda */
+        right: auto;
+    }
+
+    .timeline-item:nth-child(even)::after {
+        left: -10px; /* Asegura que los pares también usen la izquierda */
+    }
+   
+}
+
+/* Mostrar menú en escritorio */
+@media (min-width: 769px) {
+    .hamburger { display: none; }
+    .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+}

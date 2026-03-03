@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
 <body>
     <div class="space-background">
         <div class="stars-layer-1"></div>
@@ -19,8 +20,13 @@
     <header>
         <div class="container">
             <a href="#" class="logo">Mauricio Zelarayán</a>
+            
+            <button id="menu-btn" class="hamburger" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <nav>
-                <ul>
+                <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#sobre-mi">Sobre Mí</a></li>
                     <li><a href="#experiencia">Experiencia y Educación</a></li>
@@ -258,9 +264,32 @@
       this.reset(); // <--- ¡Aquí es donde se borra todo el contenido!
       alert('¡Gracias por contactarme, Mauricio! Te responderé pronto.');
     } else {
-      alert('Huy, algo salió mal. Por favor, intenta de nuevo.');
+      alert('Algo salió mal. Por favor, intenta de nuevo.');
     }
   }
 </script>
+
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = menuBtn.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+    });
+
+    // Cerrar al hacer clic en un link para que no tape el contenido
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+        });
+    });
+</script>
+
 </body>
 </html>
