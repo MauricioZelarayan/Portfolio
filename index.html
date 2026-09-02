@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Mauricio Zelarayán</title>
+    <title>Mauricio Zelarayán - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +32,10 @@
                     <li><a href="#experiencia">Experiencia y Educación</a></li>
                     <li><a href="#proyectos">Proyectos</a></li>
                     <li><a href="#contacto">Contacto</a></li>
+                    <li class="lang-switch-wrapper">
+                        <span class="lang-btn active">ES</span>
+                        <a href="index-en.html" class="lang-btn">EN</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -42,7 +46,7 @@
             <div class="container">
                 <div class="inicio-content">
                     <h1>Hola, soy Mauricio Zelarayán</h1>
-                    <h2>Estudiante de Informática</h2>
+                    <h2>DesarrolladorFull Stack</h2>
                     <p>Estudiante de la Tecnicatura Universitaria en Informática. Busco aplicar mi experiencia en desarrollo fullstack para crear soluciones de software eficaces y eficientes.</p>
                     <a href="#proyectos" class="btn">Ver mis Proyectos</a>
                     <a href="Mauricio Zelarayan CV.pdf" download class="btn btn-outline">
@@ -56,16 +60,19 @@
             <div class="container">
                 <h2>Sobre Mí</h2>
                 <div class="sobre-mi-content">
-                    <div class="sobre-mi-img">
-                        <img src="descarga.jpg" alt="Foto de Mauricio Zelarayán">
-                    </div>
-                    <div class="sobre-mi-text">
+                    <div class="sobre-mi-texto">
                         <p>
-                            Soy un estudiante avanzado de la Tecnicatura Universitaria en Informática en la Universidad Nacional de General Sarmiento. Me considero una persona paciente, responsable y con muchas ganas de aprender.
+                            Soy estudiante avanzado de la <strong>Tecnicatura Universitaria en Informática (UNGS)</strong> y <strong>desarrollador orientado a soluciones web fullstack</strong>.
                         </p>
+
                         <p>
-                            Mi experiencia previa como Supervisor de Ventas me ha permitido desarrollar fuertes habilidades de comunicación, gestión de equipos y atención al cliente, las cuales busco combinar con mi formación técnica para aportar valor en el mundo del desarrollo de software.
+                            He desarrollado proyectos integrales desde cero, destacando mi trabajo freelance en la plataforma de e-learning <strong>Global Chess</strong>, donde diseñé una arquitectura desacoplada enfocada en escalabilidad, paneles de gestión y buenas prácticas de seguridad web.
                         </p>
+
+                        <p>
+                            Durante mi trayectoria previa como <strong>Supervisor de Ventas</strong> desarrollé capacidad para coordinar equipos, comunicación asertiva y visión de negocio. Combino esta perspectiva con mis conocimientos en sistemas <strong>CRM y ERP</strong> para construir software sólido, seguro y orientado a aportar valor real a los equipos.
+                        </p>
+                        </div>
                         
                         <div class="skills-grid">
                             <div class="skill-card">
@@ -74,6 +81,14 @@
                                     <div class="skill-item"><i class="fab fa-html5" style="color: #e34c26;"></i><span>HTML5</span></div>
                                     <div class="skill-item"><i class="fab fa-css3-alt" style="color: #264de4;"></i><span>CSS3</span></div>
                                     <div class="skill-item"><i class="fab fa-js" style="color: #f7df1e;"></i><span>JavaScript</span></div>
+                                    <div class="skill-item">
+                                        <img src="typescript.svg" alt="TypeScript" class="skill-icon-svg">
+                                        <span>TypeScript</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <img src="tailwind.svg" alt="Tailwind CSS" class="skill-icon-svg">
+                                        <span>Tailwind CSS</span>
+                                    </div>                                      
                                     <div class="skill-item"><i class="fab fa-bootstrap" style="color: #7952b3;"></i><span>Bootstrap</span></div>
                                 </div>
                             </div>
@@ -82,6 +97,7 @@
                                 <h4>Backend</h4>
                                 <div class="skill-icons">
                                     <div class="skill-item"><i class="fab fa-java" style="color: #007396;"></i><span>Java / Apex</span></div>
+                                    <div class="skill-item"><i class="fab fa-node" style="color: #539e43;"></i><span>Node.js</span></div>
                                     <div class="skill-item"><i class="fab fa-python" style="color: #3776ab;"></i><span>Python</span></div>
                                     <div class="skill-item"><i class="fas fa-leaf" style="color: #6db33f;"></i><span>Spring Boot</span></div>
                                     <div class="skill-item"><i class="fab fa-docker" style="color: #2496ed;"></i><span>Docker</span></div>
@@ -91,10 +107,30 @@
                             <div class="skill-card">
                                 <h4>Herramientas & DB</h4>
                                 <div class="skill-icons">
-                                    <div class="skill-item"><i class="fas fa-database" style="color: #336791;"></i><span>PostgreSQL</span></div>
-                                    <div class="skill-item"><i class="fas fa-server" style="color: #4479a1;"></i><span>MySQL</span></div>
-                                    <div class="skill-item"><i class="fab fa-github" style="color: #181717;"></i><span>GitHub</span></div>
-                                    <div class="skill-item"><i class="fas fa-terminal" style="color: #ff6c37;"></i><span>Postman</span></div>
+                                    <div class="skill-item">
+                                        <img src="postgresql.svg" alt="PostgreSQL" class="skill-icon-svg">
+                                        <span>PostgreSQL</span>
+                                    </div>                                    
+                                    <div class="skill-item">
+                                        <img src="mysql.svg" alt="MySQL" class="skill-icon-svg">
+                                        <span>MySQL</span>
+                                    </div> 
+                                    <div class="skill-item">
+                                        <i class="fab fa-github" style="color: #ffffff;"></i>
+                                        <span>GitHub</span>
+                                    </div>                                    
+                                    <div class="skill-item">
+                                        <img src="postman.svg" alt="Postman" class="skill-icon-svg">
+                                        <span>Postman</span>
+                                    </div> 
+                                    <div class="skill-item">
+                                        <img src="railway.svg" alt="Railway" class="skill-icon-svg">
+                                        <span>Railway</span>
+                                    </div> 
+                                    <div class="skill-item">
+                                        <i class="fas fa-play" style="color: #000000; display: inline-block; transform: rotate(-90deg);"></i>
+                                        <span>Vercel</span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -102,6 +138,7 @@
                                 <h4>Especialidades</h4>
                                 <div class="skill-icons">
                                     <div class="skill-item"><i class="fab fa-salesforce" style="color: #00a1e0;"></i><span>Salesforce</span></div>
+                                    <div class="skill-item"><i class="fas fa-calculator" style="color: #008080;"></i><span>Tango Gestión</span></div>
                                     <div class="skill-item"><i class="fas fa-robot" style="color: #ff9900;"></i><span>Prompt Eng.</span></div>
                                     <div class="skill-item"><i class="fas fa-file-excel" style="color: #1d6f42;"></i><span>Excel</span></div>
                                 </div>
@@ -119,6 +156,14 @@
                 <div class="experiencia-laboral-timeline">
                     <h3>Experiencia Laboral</h3>
                     <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <span class="timeline-date">Mayo 2026 - Agosto 2026</span>
+                                <h3>Desarrollador Web Full Stack (Freelance)</h3>
+                                <p class="timeline-company">Global Chess</p>
+                                <p>Diseño, desarrollo e implementación desde cero de una plataforma web comercial de e-learning orientada al ajedrez bajo una arquitectura desacoplada. Implementación de APIs REST con Node.js, Express, TypeScript, React y PostgreSQL (Prisma ORM), autenticación JWT y estándares de seguridad OWASP (Helmet, Rate Limiting y Turnstile CAPTCHA). Despliegue en producción mediante Vercel y Railway.</p>
+                            </div>
+                        </div>
                         <div class="timeline-item">
                             <div class="timeline-content">
                                 <span class="timeline-date">2018 - 2021</span>
@@ -199,6 +244,19 @@
                         </div>
                     </div>
 
+                    <div class="proyecto-card">
+                        <div class="card-image-container" style="position: relative; background: #111827;">
+                            <i class="fas fa-layer-group" style="font-size: 3.5rem; color: var(--color-primario);"></i>
+                            <span class="badge-proceso">En desarrollo</span>
+                        </div>
+                        <div class="card-body">
+                            <h3>CRM SaaS Multi-Tenant</h3>
+                            <p class="card-description">Plataforma SaaS multi-tenant full-stack desarrollada en monorepo con Node.js, Express, TypeScript, PostgreSQL y React. Diseñada bajo estándares OWASP con validación vía Zod, autenticación JWT con cookies HttpOnly, Cloudflare Turnstile y RBAC aislado por organización. Implementa transacciones atómicas con Prisma ORM, API tipada de punta a punta y soporte multilingüe (ES / EN / PT).</p>
+                            <div class="card-buttons">
+                                <span class="btn-proyecto btn-disabled"><i class="fas fa-hammer"></i> En desarrollo</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -209,7 +267,7 @@
         <p>Si mi perfil te resulta interesante o si querés saber algo más sobre mí, no dudes en contactarme.</p>
         
         <div class="contact-wrapper">
-            <form action="https://formspree.io/f/mojnjrlg" method="POST" id="my-form" class="contact-form">
+            <form action="https://formspree.io/f/xgaeyyrw" method="POST" id="my-form" class="contact-form">
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
                     <input type="text" name="name" id="nombre" required>
@@ -226,10 +284,6 @@
             </form>
 
             <div class="contact-info">
-                <a href="mailto:mauricio.zelarayan@outlook.com"><i class="fas fa-envelope"></i> mauricio.zelarayan@outlook.com</a>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i> 11-4145-2371
-                </div>                 
                 <a href="https://github.com/MauricioZelarayan" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </div>
@@ -262,7 +316,7 @@
 
     if (response.ok) {
       this.reset(); // <--- ¡Aquí es donde se borra todo el contenido!
-      alert('¡Gracias por contactarme, Mauricio! Te responderé pronto.');
+      alert('¡Gracias por escribir! Ya recibí tu mensaje, me pondré en contacto lo antes posible.');
     } else {
       alert('Algo salió mal. Por favor, intenta de nuevo.');
     }

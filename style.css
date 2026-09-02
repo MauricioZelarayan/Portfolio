@@ -76,11 +76,23 @@ header nav a:hover { color: var(--color-primario); }
 .btn:hover { background: #1f5bce; }
 
 /* Sección Sobre Mí */
-#sobre-mi { background: transparent; }
-.sobre-mi-content { display: flex; align-items: center; gap: 3rem; }
-.sobre-mi-img { flex: 1; text-align: center; }
-.sobre-mi-img img { max-width: 300px; border-radius: 50%; border: 5px solid rgba(255,255,255,0.2); }
-.sobre-mi-text { flex: 2; }
+.sobre-mi-texto {
+  max-width: 680px;         /* Limita el ancho para que la vista no viaje tanto de lado a lado */
+  margin: 0 auto 3rem auto; /* Lo centra y le da buen margen inferior antes de las cards */
+  text-align: left;         /* La alineación a la izquierda es más cómoda para leer que centrada */
+}
+
+.sobre-mi-texto p {
+  font-size: 1.05rem;       /* Ligeramente más grande para que no se pierda en el fondo oscuro */
+  line-height: 1.75;        /* Espaciado entre líneas para mejorar la legibilidad */
+  margin-bottom: 1.4rem;    /* Separa claramente cada bloque de ideas */
+  color: #cbd5e1;           /* Un gris claro/blanco roto cansa menos que blanco puro */
+}
+
+.sobre-mi-texto strong {
+  color: #ffffff;           /* Destaca las palabras clave para reclutadores que scanean rápido */
+  font-weight: 600;
+}
 
 .cv-download { margin-top: 2rem; }
 .cv-download i { margin-right: 8px; color: #ff0000; }
@@ -89,9 +101,9 @@ header nav a:hover { color: var(--color-primario); }
 /* Sección de Habilidades */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas exactas */
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 
 .skill-card {
@@ -146,6 +158,14 @@ header nav a:hover { color: var(--color-primario); }
 .skill-item:hover { transform: scale(1.15); }
 .skill-item i { font-size: 2.5rem; margin-bottom: 0.8rem; }
 .skill-item span { font-size: 0.85rem; font-weight: 700; color: var(--color-texto-oscuro); display: block; }
+
+.skill-item img.skill-icon-svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.8rem;
+    object-fit: contain;
+    display: inline-block;
+}
 
 /* Sección Experiencia */
 #experiencia { background: transparent; }
@@ -429,8 +449,115 @@ header .container {
     }
 }
 
+/* --- Ajuste de Tarjetas (Efecto Glassmorphism Oscuro) --- */
+.skill-card,
+.timeline-content,
+.proyecto-card,
+.contact-form {
+    background: rgba(15, 23, 42, 0.75) !important; /* Azul noche translúcido */
+    color: var(--color-blanco) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    backdrop-filter: blur(10px); /* Difumina las estrellas de fondo */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Textos internos a color claro */
+.skill-card h4,
+.skill-item span,
+.timeline-content h3,
+.timeline-company,
+.card-body h3,
+.form-group label {
+    color: var(--color-blanco) !important;
+}
+
+.card-description {
+    color: #cbd5e1 !important; /* Gris claro legible */
+}
+
+/* Fondo de la imagen en las tarjetas de proyecto */
+.card-image-container {
+    background-color: #0b0f19 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-buttons {
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Campos del formulario adaptados al modo oscuro */
+.form-group input, 
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: var(--color-primario) !important;
+    outline: none;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
 /* Mostrar menú en escritorio */
 @media (min-width: 769px) {
     .hamburger { display: none; }
     .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+}
+
+.lang-switch {
+    border: 1px solid var(--color-primario);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+.lang-switch:hover {
+    background: var(--color-primario);
+    color: #fff !important;
+}
+
+/* Contenedor del selector de idioma */
+.lang-switch-wrapper {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 2px;
+    gap: 2px;
+}
+
+/* Botones individuales */
+.lang-btn {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #94a3b8;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    line-height: 1.2;
+}
+
+/* Botón inactivo al pasar el cursor */
+a.lang-btn:hover {
+    color: var(--color-blanco);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Estado activo marcado */
+.lang-btn.active {
+    background: var(--color-primario);
+    color: var(--color-blanco);
+    cursor: default;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajuste centrado para celulares */
+@media (max-width: 768px) {
+    .lang-switch-wrapper {
+        margin-top: 0.5rem;
+    }
 }
